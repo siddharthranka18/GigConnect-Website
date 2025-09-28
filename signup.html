@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+            <div class="logo-img"><img src="assets/gigconnect.logo.png" alt=""></div>
+            <span class="logo-text">GigConnect</span>
+        </a>
+        </div>
+            <ul class="nav-link">
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <div class="dropdown">
+                    <button class="Login-btn">Login</button>
+                    <div class="dropdown-content">
+                        <a href="clientlogin.html">Login as Client</a>
+                        <a href="professionallogin.html">Login as Professional</a>
+                    </div>
+                </div>
+                <a href="signup.html" class="Signup-btn">Sign up</a>
+            </div>
+        </nav>  
+    </header>
+    <main class="signup-container">
+        <div class="signup-card">
+            <h2>Create Your Client Account</h2>
+            <p class="subtitle">Join to find trusted workers near you.</p>
+
+            <form class="signup-form" method="POST">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="enter your fullname" required>
+                </div>      
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" name="password" placeholder="create your password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="confirm your password" required>
+                </div>
+                
+                <div class="terms-checkbox-group">
+                    <input type="checkbox" id="agree-terms" name="agree-terms" required>
+                    <label for="agree-terms">I agree to the <a href="#" class="terms-link">Terms of Service</a> & <a href="#" class="terms-link">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="signup-submit-btn">Sign Up</button>
+            </form>
+            
+
+            <div class="login-prompt">
+                <p>Already have an account? <a href="clientlogin.html">Log In</a></p>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo-text"> 
+                        <img src="assets/gigconnect.logo.png" alt="GigConnect Logo" class="footer-logo">
+                        <span class="brand-text">GigConnect</span>
+                    </div> 
+                    <p class="footer-description">Connecting Gurugram's skilled professionals with reliable work opportunities and efficient household and business services."</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect with us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><img src="assets/facebook.png" alt="Facebook"></a>
+                        <a href="#" aria-label="LinkedIn"><img src="assets/linked in.png" alt="LinkedIn"></a>
+                        <a href="#" aria-label="Instagram"><img src="assets/insta logo.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div> 
+            
+            <hr class="footer-separator">
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GigConnect. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer> 
+</body>
+</html>

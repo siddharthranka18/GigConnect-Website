@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+            <div class="logo-img"><img src="assets/gigconnect.logo.png" alt=""></div>
+            <span class="logo-text">GigConnect</span>
+        </a>
+        </div>
+            <ul class="nav-link">
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <div class="dropdown">
+                    <button class="Login-btn">Login</button>
+                    <div class="dropdown-content">
+                        <a href="client-login.html">Login as Client</a>
+                        <a href="pro-login.html">Login as Professional</a>
+                    </div>
+                </div>
+                <a href="signup.html" class="Signup-btn">Sign up</a>
+            </div>
+        </nav>  
+    </header>
+    <main class="contact-us-container">
+        <div class="contact-card">
+            <h2>Get in Touch</h2>
+            <p class="subtitle">Have questions or feedback? We're here to help!</p>
+
+            <form class="contact-form" action="/submit-contact" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label required>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 12345 67890">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject (Optional)</label>
+                        <input type="text" id="subject" name="subject" placeholder="Inquiry about services">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Type your message here" required></textarea>
+                </div>
+                
+                <button type="submit" class="contact-submit-btn">Send Message</button>
+            </form>
+
+            <div class="contact-divider"><span>OR</span></div>
+
+            <div class="direct-contact">
+                <h3>Connect with Us Directly</h3>
+                <div class="contact-info-group">
+                    <p><strong>Call:</strong> +91 123 456 7890</p>
+                    <p><strong>Email:</strong> support@gigconnect.com</a></p>
+                    <p><strong>Address:</strong> 123 GigConnect St, Cyber City, Gurugram, India</p>
+                </div>
+                
+                <div class="social-icons-contact-page">
+                    <a href="#" aria-label="Facebook"><img src="assets/facebook.png" alt="Facebook"></a>
+                    <a href="#" aria-label="LinkedIn"><img src="assets/linked in.png" alt="LinkedIn"></a>
+                    <a href="#" aria-label="Instagram"><img src="assets/insta logo.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo-text"> 
+                        <img src="assets/gigconnect.logo.png" alt="GigConnect Logo" class="footer-logo">
+                        <span class="brand-text">GigConnect</span>
+                    </div> 
+                    <p class="footer-description">Connecting Gurugram's skilled professionals with reliable work opportunities and efficient household and business services."</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect with us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><img src="assets/facebook.png" alt="Facebook"></a>
+                        <a href="#" aria-label="LinkedIn"><img src="assets/linked in.png" alt="LinkedIn"></a>
+                        <a href="#" aria-label="Instagram"><img src="assets/insta logo.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div> 
+            
+            <hr class="footer-separator">
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GigConnect. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer> 
+</body>
+</html>

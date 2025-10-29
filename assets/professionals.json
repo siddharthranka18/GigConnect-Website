@@ -1,0 +1,30 @@
+[
+    {
+        "name":"Ravi kumar",
+        "ratings":5,
+        "experience":"Govt. cetrified 6+ years of experience",
+        "distance":"1.0km away",
+        "photo":"assets/Ravi kumar.png"
+    },
+    {
+        "name":"Rajesh",
+        "ratings":4,
+        "experience":"Govt. cetrified 4+ years of experience",
+        "distance":"2km away",
+        "photo":"assets/rajesh 2ndpage.png"
+    },
+    {
+        "name":"Atif",
+        "ratings":3,
+        "experience":"Govt. cetrified 3+ years of experience",
+        "distance":"2km away",
+        "photo": "assets/atif 2ndp PAGE.png"
+    },
+    {
+        "name":"mukesh kumar",
+        "ratings":4,
+        "experience":"Govt. cetrified 4+ years of experience",
+        "distance":"5 km away",
+        "photo": "assets/suresh 2ndpage.png"
+    }
+]

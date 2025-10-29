@@ -4,15 +4,12 @@ body, html {
     padding: 0;
     width: 100%;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
    
     background-image: url(assets/noise_orange_bg.png);
-    background-color: #f9a825; 
-
-  
+    background-color: #f9a825;  
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -188,7 +185,91 @@ body {
     list-style: none;
     display: flex;
     gap: 110px;
+    cursor: pointer;
 }
+.work {
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .work:hover {
+    transform: translateY(-3px);
+  }
+  
+  .work::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #A6A6A6;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+  }
+  
+  .work:hover::before {
+    transform: scaleY(1);
+  }
+
+  .Help {
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .Help:hover {
+    transform: translateY(-3px);
+  }
+  
+  .Help::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #A6A6A6;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+  }
+  
+  .Help:hover::before {
+    transform: scaleY(1);
+  }
+
+  .contact {
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .contact:hover {
+    transform: translateY(-3px);
+  }
+  
+  .contact::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: #A6A6A6;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact:hover::before {
+    transform: scaleY(1);
+  }
 .logo{
     display: flex;
     align-items: center;
@@ -224,6 +305,7 @@ body {
 .nav-buttons{
     display: flex;
     gap: 15px;
+    white-space: nowrap;
 }
 .Login-btn, .Signup-btn {
     padding: 10px 24px;
@@ -355,17 +437,30 @@ body {
     font-weight: 700;
 }
 :root {
-    --primary-blue-icon: #2a599b;
+    --primary-blue-icon: #2a599b; 
     --primary-orange-icon: #e67e22;
-    --section-bg: #1c1f2b;
-    --heading-color: #f0f0f0;
-    --card-bg: #33364c;
-    --card-text-light: #f0f0f0;
-    --card-text-dark: #b0b0b0;
-    --card-border-radius: 12px;
+    --section-bg: #1c1f2b;       
+    --heading-color: #f0f0f0;      
+    --card-bg: #33364c;            
+    --card-text-light: #f0f0f0;     
+    --card-text-dark: #b0b0b0;     
+    --card-border-radius: 12px;   
+ 
+    --page-bg-color: var(--section-bg);
+    --timeline-card-bg: var(--card-bg); 
+    --timeline-heading-color: var(--heading-color); 
+    --timeline-text-color: var(--card-text-dark); 
+    --timeline-icon-bg: var(--primary-blue-icon); 
+    --timeline-line-color: #55586b; 
+    --timeline-border-color: #44475e; 
+    --shadow-dark-subtle: rgba(0, 0, 0, 0.3); 
+    --shadow-dark-medium: rgba(0, 0, 0, 0.5); 
+
+    --header-height: 70px; 
+    --footer-height: 50px; 
 }
 .services-section {
-    background-color: rgba(24, 46, 95, 1);
+    /* background-color: rgba(24, 46, 95, 1); */
     background-image: url(assets/noise.png);
     color: var(--card-text-light); 
     padding: 80px ; 
@@ -393,8 +488,9 @@ body {
     gap: 30px;
     flex-direction: row;
     flex-wrap: nowrap; 
-    padding: 0 10px; 
+    padding: 0 10px;
 }
+
 .step-card {
     background-color: transparent; 
     padding: 0px;
@@ -409,12 +505,19 @@ body {
     max-width: 500px; 
     min-height: 120px;
     text-align: left; 
+    cursor: pointer;
 }
 .step-card img {
     width: 120px; 
     height: 120px; 
     object-fit: contain; 
     flex-shrink: 0; 
+}
+.step-card img{
+    transition: transform 0.3s ease-out;
+}
+.step-card:hover img{
+    transform: scale(1.1);
 }
 .step-card .step-text { 
     display: flex;
@@ -444,6 +547,15 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
     gap: 40px; 
     justify-items: center; 
+    /* cursor: pointer; */
+}
+.service-card img {
+    /* ... existing styles ... */
+    transition: transform 0.3s ease-out; /* Smooth transition for image */
+}
+
+.service-card:hover img {
+    transform: scale(1.1); /* Image scales up a bit more on hover */
 }
 .service-card {
     background-color: transparent;
@@ -490,6 +602,13 @@ body {
     justify-content: center;
     align-items: center;
     max-width: 1200px;
+    cursor: pointer;
+}
+.person-container{
+    transition: transform 0.3s ease-out;
+}
+.person-container:hover{
+    transform: scale(1.1);
 }
 .person-card{
     background-color: #f4f2f3;
@@ -503,6 +622,7 @@ body {
     text-align: left;
     margin: 0 40px;
     min-height: 250px;
+    
 }
 .person-image{
     flex-shrink: 0;
@@ -864,10 +984,7 @@ min-height: 100%;
 .contact-btn:hover {
     background-color: #1a4a7a;
 }
-.rating {
-    font-size: 1.2em;
-    color: var(--star-filled);
-}
+
 
 
 .rating-visual {
@@ -882,6 +999,10 @@ min-height: 100%;
 
 
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden; 
+    }
+
     .search-section {
         flex-direction: column;
         align-items: stretch; 
@@ -981,23 +1102,18 @@ min-height: 100%;
 .terms-checkbox .checkbox-icon {
 
     position: absolute;
-   left: 0;
+    left: 0;
     top: 50%;
     transform: translateY(-50%);
-
-  
     width: 22px;
     height: 22px;
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f0f0f0;
     transition: all 0.2s ease;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    
-   
     color: transparent;
     font-size: 26px;
     font-weight: bold;
@@ -1049,7 +1165,6 @@ min-height: 100%;
     position: relative; 
     display: inline-block;
 }
-
 
 .dropdown-content {
     display: none; 
@@ -1447,3 +1562,1039 @@ min-height: 100%;
     opacity: 1;
 }
 
+
+@media (max-width: 1200px) {
+    /* General */
+    .main-content-panel {
+        max-width: 800px; /* Reduce max-width for main content panels */
+        padding: 20px 25px;
+        width: calc(100% - 30px);
+    }
+
+    /* Navbar */
+    .navbar {
+        padding: 15px 25px;
+    }
+    .logo-text {
+        font-size: 38px;
+    }
+    .nav-link {
+        gap: 60px;
+    }
+    .nav-link li a {
+        font-size: 28px;
+        padding: 8px 12px;
+    }
+    .Login-btn, .Signup-btn {
+        font-size: 24px;
+        padding: 8px 18px;
+    }
+    .dropdown-content {
+        min-width: 180px; /* Adjust min-width if needed */
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 600px; /* Slightly reduce height */
+    }
+    .hero-content {
+        padding-left: 50px;
+    }
+    .hero h1 {
+        font-size: 80px;
+    }
+    .hero-subtitle {
+        font-size: 26px;
+    }
+    .search-input {
+        width: 320px;
+    }
+    .search-btn, .register-pro {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+
+    /* Services Section */
+    .services-section {
+        padding: 60px 20px;
+    }
+    .services-section h2, .why-trust-us h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+    .steps-container {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center; /* Center cards when they wrap */
+    }
+    .step-card {
+        flex-basis: 48%;
+        max-width: 48%;
+        min-height: auto;
+    }
+    .step-card img {
+        width: 100px;
+        height: 100px;
+    }
+    .step-card h3 {
+        font-size: 24px;
+    }
+    .step-card p {
+        font-size: 16px;
+    }
+    .popular-services {
+        margin-bottom: 80px;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+    }
+    .service-card {
+        max-width: 220px;
+        min-height: 200px;
+    }
+    .service-card img {
+        height: 100px;
+        width: 100px;
+    }
+    .service-card p {
+        font-size: 20px;
+    }
+
+    /* Why Trust Us Section */
+    .person-container {
+        gap: 20px;
+    }
+    .person-card {
+        max-width: 45%;
+        padding: 25px;
+        min-height: auto;
+    }
+    .person-image img {
+        width: 90px;
+        height: 90px;
+    }
+    .person-content h3 {
+        font-size: 28px;
+    }
+    .person-content .statement {
+        font-size: 15px;
+    }
+
+    /* Footer */
+    .footer-brand {
+        width: 200px;
+    }
+    .brand-text {
+        font-size: 24px;
+    }
+    .footer-description {
+        font-size: 20px;
+        max-width: 400px;
+    }
+    .footer-social {
+        width: 180px;
+    }
+    .footer-social h4 {
+        font-size: 18px;
+    }
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+    .footer-bottom {
+        font-size: 22px;
+    }
+
+    /* Find Help Now Page */
+    .all-content {
+        max-width: 960px;
+    }
+    .worker-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .card {
+        padding: 20px;
+        gap: 25px;
+    }
+    .worker-photo img {
+        width: 100px;
+        height: 100px;
+    }
+    .card h3 {
+        font-size: 1.6em;
+    }
+    .card .distance {
+        font-size: 1.2em;
+    }
+    .contact-btn {
+        padding: 10px 25px;
+    }
+
+    /* Registration/Login/Signup/Contact Pages */
+    .registration-card, .login-card, .signup-card, .contact-card {
+        padding: 30px;
+        max-width: 400px;
+    }
+    .registration-card h2, .login-card h2, .signup-card h2, .contact-card h2 {
+        font-size: 26px;
+    }
+    .terms-checkbox label {
+        font-size: 18px;
+    }
+    .continue-btn, .login-button, .signup-submit-btn {
+        font-size: 20px;
+        padding: 12px 40px;
+    }
+    .contact-form .form-row .form-group {
+        min-width: 200px;
+    }
+    .contact-divider::before, .contact-divider::after {
+        width: 30%;
+    }
+}
+
+
+/* --- Small Screens (Tablets & Phones, e.g., < 768px) --- */
+@media (max-width: 768px) {
+    /* General */
+    body {
+        font-size: 14px;
+    }
+    .main-content-panel {
+        margin: 20px auto;
+        padding: 15px 15px;
+        width: calc(100% - 30px);
+    }
+
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 15px;
+    }
+    .logo {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .logo-text {
+        font-size: 30px;
+    }
+    .nav-link {
+        display: none; /* Hide for hamburger menu */
+    }
+    .nav-buttons {
+        width: 100%;
+        justify-content: space-around;
+        margin-top: 10px;
+        gap: 0;
+    }
+    .Login-btn, .Signup-btn {
+        flex: 1;
+        margin: 0 5px;
+        font-size: 18px;
+        padding: 10px 0;
+        text-align: center;
+    }
+    .dropdown-content {
+        left: 0;
+        right: auto;
+        width: 100%;
+        min-width: unset;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: auto;
+        min-height: 400px;
+        padding: 40px 0;
+        background-position: center top;
+    }
+    .hero-content {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 50px;
+        margin-bottom: 15px;
+    }
+    .hero-subtitle {
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .hero-search, .hero-register {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    .search-input {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .search-btn, .register-pro {
+        width: 100%;
+        font-size: 18px;
+        padding: 12px 0;
+    }
+    .register-text {
+        text-align: center;
+    }
+
+    /* Services Section */
+    .services-section {
+        padding: 40px 15px;
+    }
+    .services-section h2, .why-trust-us h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        gap: 25px;
+    }
+    .step-card {
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 15px;
+        gap: 15px;
+        min-height: auto;
+        flex-direction: column; /* Stack image and text inside card */
+        text-align: center;
+    }
+    .step-card img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+    .step-card .step-text {
+        text-align: center;
+    }
+    .step-card h3 {
+        font-size: 22px;
+    }
+    .step-card p {
+        font-size: 16px;
+    }
+    .popular-services {
+        margin-bottom: 60px;
+    }
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .service-card {
+        max-width: 100%;
+        min-height: 180px;
+    }
+    .service-card img {
+        height: 90px;
+        width: 90px;
+        margin-bottom: 10px;
+    }
+    .service-card p {
+        font-size: 18px;
+    }
+
+    /* Why Trust Us Section */
+    .why-trust-us {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .person-container {
+        flex-direction: column;
+        gap: 25px;
+        padding: 0 15px;
+    }
+    .person-card {
+        max-width: 100%;
+        padding: 20px;
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .person-image {
+        margin-bottom: 15px;
+    }
+    .person-image img {
+        width: 80px;
+        height: 80px;
+    }
+    .person-content h3 {
+        font-size: 24px;
+        text-align: center;
+    }
+    .person-content .statement {
+        font-size: 14px;
+        text-align: center;
+    }
+    .person-content .meta {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    /* Footer */
+    .main-footer {
+        padding: 30px 0;
+    }
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        gap: 20px; /* Added gap for consistent spacing when stacked */
+    }
+    .footer-brand, .footer-social {
+        width: 100%;
+        align-items: center;
+        margin-bottom: 0; /* Let gap handle spacing */
+    }
+    .footer-description {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        font-size: 18px;
+        text-align: center;
+    }
+    .footer-social h4 {
+        margin-top: 20px;
+    }
+    .footer-separator {
+        margin: 30px 0;
+    }
+    .footer-bottom {
+        font-size: 18px;
+    }
+
+    /* Find Help Now Page */
+    .all-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .search-bar-group {
+        flex-direction: column;
+    }
+    .input-with-icon {
+        width: 100%;
+    }
+    .find-help {
+        width: 100%;
+    }
+    .filters-bar {
+        font-size: 14px;
+        padding: 0px 15px;
+        height: 40px;
+    }
+    .workers h2 {
+        font-size: 1.6em;
+    }
+    .worker-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 20px;
+    }
+    .worker-photo {
+        margin-bottom: 10px;
+    }
+    .worker-photo img {
+        width: 90px;
+        height: 90px;
+    }
+    .card-content {
+        align-items: center;
+    }
+    .card h3 {
+        font-size: 1.5em;
+    }
+    .rating-visual {
+        font-size: 1.3rem;
+    }
+    .card p.experience, .card .distance {
+        font-size: 0.9em;
+    }
+    .card .distance {
+        font-size: 1.2em;
+    }
+    .contact-btn {
+        align-self: center;
+        width: 80%;
+        max-width: 200px;
+    }
+
+    /* Registration/Login/Signup/Contact Pages */
+    .main-content {
+        padding: 30px 15px;
+    }
+    .registration-card, .login-card, .signup-card, .contact-card {
+        padding: 25px;
+        max-width: 95%;
+    }
+    .registration-card h2, .login-card h2, .signup-card h2, .contact-card h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .registration-card .subtitle, .signup-card .subtitle, .contact-card .subtitle {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+    .terms-checkbox label {
+        font-size: 16px;
+        padding-left: 30px;
+    }
+    .terms-checkbox .checkbox-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+    }
+    .continue-btn, .login-button, .signup-submit-btn {
+        font-size: 18px;
+        padding: 12px 0;
+        max-width: 100%;
+    }
+    .login-form .form-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        font-size: 13px;
+    }
+    .contact-form .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .contact-form .form-row .form-group {
+        min-width: unset;
+    }
+    .contact-divider::before, .contact-divider::after {
+        width: 25%;
+    }
+    .direct-contact h3 {
+        font-size: 18px;
+    }
+    .contact-info-group p {
+        font-size: 14px;
+    }
+    .social-icons-contact-page {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 480px) {
+    /* General body/html adjustments */
+    body {
+        font-size: 12px; /* Even smaller base font for tiny screens */
+        overflow-x: hidden; /* Ensure no horizontal scroll */
+    }
+    .main-content-panel {
+        margin: 15px auto;
+        padding: 10px;
+        width: calc(100% - 20px);
+    }
+
+    /* --- Navbar --- */
+    .navbar {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center items within the stacked column */
+        padding: 10px;
+        position: relative; /* Keep relative for dropdowns if any */
+    }
+    .logo {
+        width: 100%; /* Ensure logo takes full width */
+        justify-content: center; /* Center logo content */
+        margin-bottom: 10px; /* Space below logo before buttons */
+        flex-wrap: wrap; /* In case logo text/image themselves need to wrap */
+    }
+    .logo-img {
+        height: 45px; /* Smaller logo image */
+    }
+    .logo-text {
+        font-size: 28px; /* Adjusted logo text size */
+        white-space: normal; /* Allow text to wrap if too long */
+        line-height: 1.2;
+    }
+    .nav-link { /* Assuming this is your main navigation that disappears for hamburger */
+        display: none; /* Keep hidden on tiny screens */
+    }
+    .nav-buttons {
+        width: 100%; /* Full width for buttons */
+        display: flex; /* Ensure flex behavior */
+        justify-content: space-around; /* Distribute buttons */
+        margin-top: 10px;
+        gap: 5px; /* Small gap between buttons */
+    }
+    .Login-btn, .Signup-btn {
+        flex: 1; /* Make buttons take equal space */
+        font-size: 16px;
+        padding: 8px 0; /* Adjust padding for full width button */
+        text-align: center;
+        border-radius: 15px; /* Adjust border-radius to fit */
+    }
+    .Login-btn {
+        margin-right: 5px; /* Small gap between login and signup */
+    }
+    .Signup-btn {
+        margin-left: 5px;
+    }
+    .dropdown-content {
+        left: 0;
+        right: auto;
+        width: 100%;
+        min-width: unset;
+        font-size: 14px; /* Adjust dropdown content font size */
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+        height: auto; /* Allow height to adjust based on content */
+        min-height: 500px; /* Ensure a decent visual height */
+        padding: 30px 10px; /* More vertical padding, less horizontal */
+        background-position: center top; /* Focus background at top */
+        background-size: cover; /* Ensure image covers the area */
+        display: flex; /* Keep flex to center content */
+        align-items: center; /* Center items vertically */
+        justify-content: center; /* Center items horizontally */
+    }
+    .hero-content {
+        padding: 0 15px; /* Reduced padding for tiny screens */
+        text-align: center; /* Center text */
+        width: 100%; /* Ensure it takes available width */
+    }
+    .hero h1 {
+        font-size: 38px; /* Significantly reduce main heading */
+        margin-bottom: 15px;
+        line-height: 1.2;
+        /* Re-evaluate text-shadow if it makes text unreadable */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    .hero-subtitle {
+        font-size: 16px; /* Reduce subtitle */
+        margin-top: 15px;
+        margin-bottom: 20px;
+        line-height: 1.4;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    .hero-search, .hero-register {
+        flex-direction: column; /* Stack input and button */
+        gap: 12px; /* Reduced gap */
+        width: 100%; /* Full width */
+        align-items: center; /* Center items */
+    }
+    .search-input {
+        width: 95%; /* Slightly less than 100% to allow for padding */
+        max-width: 300px; /* Prevent stretching too wide if container is large */
+        padding: 10px 15px 10px 40px; /* Adjust padding for icon */
+        height: 40px;
+        font-size: 14px;
+        border-radius: 18px; /* Match button radius */
+    }
+    .input-with-icon img {
+        left: 12px; /* Adjust icon position */
+        width: 22px;
+        height: 22px;
+    }
+    .search-btn, .register-pro {
+        width: 95%; /* Buttons take most of the width */
+        max-width: 300px; /* Prevent stretching too wide */
+        font-size: 16px;
+        padding: 10px 0; /* Vertical padding, full horizontal */
+        height: 40px;
+        border-radius: 8px; /* Match input or adjust */
+    }
+    .register-text {
+        font-size: 18px; /* Keep this reasonably sized */
+        margin-top: 15px; /* Space between search and register */
+        text-align: center;
+    }
+
+    
+    .services-section {
+        padding: 30px 15px;
+    }
+    .services-section h2 { /* "Get Things Done in 3 simple steps" */
+        font-size: 24px;
+        margin-bottom: 25px;
+        line-height: 1.2;
+    }
+    .steps-container {
+        flex-direction: column; /* Ensure steps stack vertically */
+        align-items: center; /* Center the stacked items */
+        gap: 20px;
+    }
+    .step-card {
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 15px;
+        flex-direction: row; 
+        align-items: center; 
+        text-align: left; 
+       
+     
+    }
+    .step-card img {
+        width: 60px; /* Smaller step image */
+        height: 60px;
+        margin-right: 10px; /* Space between image and text */
+        flex-shrink: 0;
+    }
+    .step-card .step-text {
+        flex-grow: 1; /* Allow text to take remaining space */
+        text-align: left;
+    }
+    .step-card h3 {
+        font-size: 18px;
+        margin-bottom: 3px;
+    }
+    .step-card p {
+        font-size: 14px;
+    }
+
+   
+    .popular-services h2, .why-trust-us h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column for service cards */
+        gap: 15px;
+    }
+    .service-card {
+        max-width: 250px; /* Still provide a max width for single column */
+        margin: 0 auto; /* Center the card */
+        min-height: 150px;
+    }
+    .service-card img {
+        height: 70px;
+        width: 70px;
+        margin-bottom: 10px;
+    }
+    .service-card p {
+        font-size: 16px;
+    }
+
+    .person-card {
+        padding: 15px;
+        flex-direction: column; /* Force stack for person cards */
+        align-items: center;
+    }
+    .person-image {
+        margin-bottom: 10px;
+    }
+    .person-image img {
+        width: 70px;
+        height: 70px;
+    }
+    .person-content h3 {
+        font-size: 20px;
+    }
+    .person-content .statement {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+   
+    .card {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .worker-photo img {
+        width: 70px;
+        height: 70px;
+    }
+    .card h3 {
+        font-size: 1.2em;
+    }
+    .card .distance {
+        font-size: 1.0em;
+    }
+    .contact-btn {
+        width: 90%;
+        font-size: 15px;
+        padding: 8px 0;
+    }
+
+
+    .main-footer {
+        padding: 25px 0;
+    }
+    .footer-top {
+        gap: 15px;
+    }
+    .brand-text {
+        font-size: 24px;
+    }
+    .footer-description {
+        font-size: 16px;
+    }
+    .footer-social h4 {
+        font-size: 16px;
+    }
+    .social-icons img {
+        width: 28px;
+        height: 28px;
+    }
+    .footer-bottom {
+        font-size: 14px;
+    }
+
+
+    .registration-card, .login-card, .signup-card, .contact-card {
+        padding: 20px;
+        max-width: 95%;
+    }
+    .registration-card h2, .login-card h2, .signup-card h2, .contact-card h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .registration-card .subtitle, .signup-card .subtitle, .contact-card .subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .form-details input, .login-form .form-group input, .signup-form .form-group input {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .terms-checkbox label {
+        font-size: 13px;
+        padding-left: 20px;
+    }
+    .terms-checkbox .checkbox-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+    }
+    .continue-btn, .login-button, .signup-submit-btn {
+        font-size: 16px;
+        padding: 10px 0;
+    }
+}
+    .contact-card {
+        padding: 20px;
+    }
+    .contact-form .form-group label {
+        font-size: 14px;
+    }
+    .contact-form .form-group input, .contact-form .form-group textarea {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    .social-icons-contact-page img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .error-message {
+        text-align: center;
+        color: red;
+        font-size: 1.1em;
+        padding: 20px;
+    }
+
+#howItWorksPageMain.how-it-works-main {
+    padding: 60px 20px 80px;
+    background-image:url(assets/noise.png) ;
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; 
+}
+
+
+#howItWorksPageMain .page-title {
+    text-align: center;
+    font-size: 3.2em;
+    font-weight: 800;
+    color: var(--timeline-heading-color); 
+    margin-bottom: 0;
+    position: relative;
+    padding-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); 
+}
+
+
+#howItWorksPageMain .page-title::after {
+    content: '';
+    width: 90px;
+    height: 4px;
+    background-color: var(--primary-blue-icon); 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 2px;
+    font-weight: 300;
+}
+
+
+#howItWorksPageMain .steps-container {
+    max-width: 750px;
+    width: 100%;
+    background-color: var(--timeline-card-bg); 
+    border-radius: var(--card-border-radius); 
+    box-shadow: 0 10px 40px var(--shadow-dark-medium); 
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    position: relative;
+    border: 1px solid var(--timeline-border-color); 
+}
+
+
+#howItWorksPageMain .steps-container::before {
+    content: '';
+    position: absolute;
+    left: 80px; 
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--timeline-line-color); 
+    z-index: 0;
+}
+
+
+
+#howItWorksPageMain .timeline-step {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+}
+
+
+#howItWorksPageMain .step-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--timeline-icon-bg); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 30px;
+    box-shadow: 0 4px 10px var(--shadow-dark-subtle); 
+}
+
+#howItWorksPageMain .step-icon {
+    width: 50px;
+    height: 50px;
+    filter: brightness(200%); 
+    object-fit: contain;
+}
+
+#howItWorksPageMain .step-content-wrapper {
+    flex-grow: 1;
+}
+
+
+#howItWorksPageMain .step-content-wrapper h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--timeline-heading-color);
+    line-height: 1.3;
+}
+
+#howItWorksPageMain .step-content-wrapper p {
+    margin: 0;
+    font-size: 1em;
+    color: var(--timeline-text-color); 
+    line-height: 1.6;
+}
+
+
+
+@media (max-width: 768px) {
+    #howItWorksPageMain.how-it-works-main {
+        padding: 40px 15px 60px;
+        gap: 30px;
+    }
+    #howItWorksPageMain .page-title {
+        font-size: 2.5em;
+        padding-bottom: 12px;
+    }
+    #howItWorksPageMain .page-title::after {
+        width: 70px;
+        height: 3px;
+    }
+    #howItWorksPageMain .steps-container {
+        padding: 30px 20px;
+        gap: 25px;
+    }
+    #howItWorksPageMain .steps-container::before {
+        left: 50px; 
+    }
+    #howItWorksPageMain .step-icon-wrapper {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+    #howItWorksPageMain .step-icon {
+        width: 30px;
+        height: 30px;
+    }
+    #howItWorksPageMain .step-content-wrapper h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+    #howItWorksPageMain .step-content-wrapper p {
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    #howItWorksPageMain.how-it-works-main {
+        padding: 30px 10px 40px;
+        gap: 25px;
+    }
+    #howItWorksPageMain .page-title {
+        font-size: 2em;
+        padding-bottom: 10px;
+    }
+    #howItWorksPageMain .page-title::after {
+        width: 60px;
+        height: 2px;
+    }
+    #howItWorksPageMain .steps-container {
+        padding: 25px 15px;
+        gap: 20px;
+    }
+    #howItWorksPageMain .steps-container::before {
+        left: 40px; 
+    }
+    #howItWorksPageMain .timeline-step {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center;
+    }
+    #howItWorksPageMain .step-icon-wrapper {
+        width: 45px;
+        height: 45px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    #howItWorksPageMain .step-icon {
+        width: 25px;
+        height: 25px;
+    }
+    #howItWorksPageMain .step-content-wrapper h3 {
+        font-size: 1.1em;
+        margin-bottom: 5px;
+    }
+    #howItWorksPageMain .step-content-wrapper p {
+        font-size: 0.9em;
+    }
+}

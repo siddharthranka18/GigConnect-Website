@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>client Login</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+            <div class="logo-img"><img src="/assets/gigconnect.logo.png" alt=""></div>
+            <span class="logo-text">GigConnect</span>
+        </a>
+        </div>
+        <ul class="nav-link">
+            <li><a href="howitworks.html" class="work">How It Works</a></li>
+            <li><a href="findHelpNow.html" class="Help">Services</a></li>
+            <li><a href="contactus.html" class="contact">Contact us</a></li>
+        </ul>
+            <div class="nav-buttons">
+                <div class="dropdown">
+                    <button class="Login-btn">Login</button>
+                    <div class="dropdown-content">
+                        <a href="clientlogin.html">Login as Client</a>
+                        <a href="professionallogin.html">Login as Professional</a>
+                    </div>
+                </div>
+                <a href="signup.html" class="Signup-btn">Sign up</a>
+            </div>
+        </nav>  
+    </header>
+    <main class="login-container">
+        <div class="login-card">
+            <h2>Welcome Back Client</h2>
+    
+            <form class="login-form" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+    
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="login-button">Log In</button>
+            </form>
+            
+            <div class="signup-link">
+                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-logo-text"> 
+                        <img src="/assets/gigconnect.logo.png" alt="GigConnect Logo" class="footer-logo">
+                        <span class="brand-text">GigConnect</span>
+                    </div> 
+                    <p class="footer-description">Connecting Gurugram's skilled professionals with reliable work opportunities and efficient household and business services."</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect with us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><img src="/assets/facebook.png" alt="Facebook"></a>
+                        <a href="#" aria-label="LinkedIn"><img src="/assets/linked in.png" alt="LinkedIn"></a>
+                        <a href="#" aria-label="Instagram"><img src="/assets/insta logo.png" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div> 
+            
+            <hr class="footer-separator">
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GigConnect. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+
+
+<main class="signup-container">
+    <div class="signup-card">
+        <h2>Create Your Client Account</h2>
+        <p class="subtitle">Join to find trusted workers near you.</p>
+
+        <form class="signup-form" method="POST">
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="enter your fullname" required>
+            </div>      
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" placeholder="create your password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="confirm your password" required>
+            </div>
+            
+            <div class="terms-checkbox-group">
+                <input type="checkbox" id="agree-terms" name="agree-terms" required>
+                <label for="agree-terms">
+                    I agree to the 
+                    <a href="#" class="terms-link">Terms of Service</a> & 
+                    <a href="#" class="terms-link">Privacy Policy</a>
+                </label>
+            </div>
+            
+            <button type="submit" class="signup-submit-btn">Sign Up</button>
+        </form>
+
+        <div class="login-prompt">
+            <p>Already have an account? <a href="/clientlogin">Log In</a></p>
+        </div>
+    </div>
+</main>
+
+

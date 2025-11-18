@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><%= (typeof title !== 'undefined') ? title : 'GigConnect' %></title>
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <%- include('../partials/header') %>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <%- include('../partials/footer') %>
+
+  <% if (typeof scripts !== 'undefined') { %>
+    <% scripts.forEach(function(src){ %>
+      <script src="<%= src %>"></script>
+    <% }) %>
+  <% } %>
+</body>
+</html>

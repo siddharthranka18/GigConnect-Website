@@ -1,3 +1,6 @@
+
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -5,8 +8,11 @@ const expressLayouts = require('express-ejs-layouts');
 const { body, validationResult } = require('express-validator');
 const sanitizeHtml = require('sanitize-html');
 
-const app = express();
+const app = express(); // <- MUST exist before app.use / app.set
+
+// Read env vars with sensible fallbacks
 const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/gigconnect';
 
 // ---- SETUP EJS ----
 app.set('view engine', 'ejs');
@@ -15,8 +21,6 @@ app.use(expressLayouts);
 app.set('layout', 'layouts/main');
 
 // ---- MONGO CONNECTION ----
-const MONGODB_URI = 'mongodb://localhost:27017/gigconnect';
-
 mongoose.connect(MONGODB_URI)
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => console.error('MongoDB connection error:', err));
@@ -45,11 +49,12 @@ app.get('/register', (req, res) => res.render('register', { title: 'Register as 
 //     YOUR API ROUTES
 // ===========================
 
-// escape helper
+// escape helper (prevents regexp injection)
 function escapeRegex(text = '') {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// GET /api/workers - read/search workers
 app.get('/api/workers', async (req, res) => {
   try {
     const skillQ = req.query.skill?.trim() || null;
@@ -73,12 +78,12 @@ app.get('/api/workers', async (req, res) => {
 
     res.json(workers);
   } catch (err) {
-    console.error(err);
+    console.error('GET /api/workers error:', err);
     res.status(500).json({ message: 'Error fetching workers' });
   }
 });
 
-// POST /api/workers (existing logic)
+// POST /api/workers - create worker (validation + sanitization)
 const workerValidators = [
   body('name').isString().trim().isLength({ min: 2, max: 100 }),
   body('city').isString().trim().isLength({ min: 2, max: 100 }),
@@ -95,23 +100,46 @@ app.post('/api/workers', workerValidators, async (req, res) => {
   if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() });
 
   try {
+    // Normalize and sanitize inputs
+    const rawName = req.body.name || '';
+    const rawCity = req.body.city || '';
+    const rawContact = req.body.contact || '';
+
+    const name = sanitizeHtml(String(rawName).trim(), { allowedTags: [], allowedAttributes: {} });
+    const city = sanitizeHtml(String(rawCity).trim(), { allowedTags: [], allowedAttributes: {} }).toLowerCase();
+    const contact = String(rawContact).trim();
+
     let skillsArr = Array.isArray(req.body.skills)
       ? req.body.skills
-      : req.body.skills.split(',').map(s => s.trim().toLowerCase());
+      : String(req.body.skills).split(',').map(s => s.trim().toLowerCase());
+
+    skillsArr = skillsArr.filter(Boolean);
+
+    if (!skillsArr.length) return res.status(422).json({ message: 'At least one skill required' });
+
+    const experience = Number(req.body.experience) || 0;
+    const ratings = req.body.ratings !== undefined ? Number(req.body.ratings) : 0;
+    const distance = req.body.distance !== undefined ? Number(req.body.distance) : 0;
+    const photo = req.body.photo ? String(req.body.photo).trim() : undefined;
+    const description = req.body.description ? sanitizeHtml(String(req.body.description), { allowedTags: [], allowedAttributes: {} }) : undefined;
 
     const worker = await Worker.create({
-      name: req.body.name,
-      contact: req.body.contact,
-      city: req.body.city,
+      name,
+      contact,
+      city,
       skills: skillsArr,
-      experience: req.body.experience,
-      ratings: req.body.ratings || 0,
-      distance: req.body.distance || 0
+      experience,
+      ratings,
+      distance,
+      photo,
+      description
     });
 
     res.status(201).json(worker);
   } catch (e) {
-    console.error(e);
+    console.error('POST /api/workers error:', e);
+    // duplicate key handling (e.g., unique contact)
+    if (e && e.code === 11000) return res.status(409).json({ message: 'Duplicate key error' });
     res.status(500).json({ message: "Error creating worker" });
   }
 });
